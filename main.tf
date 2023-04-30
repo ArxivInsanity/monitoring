@@ -57,7 +57,7 @@ provider "helm" {
 }
 
 module "monitoring_endpoints" {
-  source     = "./monitoring"
+  source = "./monitoring"
 }
 
 module "grafana" {

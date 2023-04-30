@@ -6,8 +6,8 @@ resource "kubernetes_service" "prom_service" {
   }
   spec {
     selector = {
-      "app.kubernetes.io/name"="prometheus"
-      prometheus="prom-kube-prometheus-stack-prometheus"
+      "app.kubernetes.io/name" = "prometheus"
+      prometheus               = "prom-kube-prometheus-stack-prometheus"
     }
     port {
       port        = local.prom_service_port

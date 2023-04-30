@@ -6,7 +6,7 @@ resource "kubernetes_service" "loki_service" {
   }
   spec {
     selector = {
-      app = "loki"
+      app  = "loki"
       name = "loki"
     }
     port {
