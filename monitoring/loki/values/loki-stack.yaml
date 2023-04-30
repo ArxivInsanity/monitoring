@@ -1,0 +1,15 @@
+loki:
+  enabled: true
+
+promtail:
+  enabled: true
+  
+grafana:
+  enabled: false
+  sidecar:
+    datasources:
+      enabled: false
+
+prometheus:
+  enabled: false
+  isDefault: false

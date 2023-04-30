@@ -1,0 +1,14 @@
+{
+	"name": "Terraform",
+	"build": {
+		"dockerfile": "./Dockerfile" 
+	},
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"HashiCorp.terraform",
+				"HashiCorp.HCL"
+			]
+		}
+	}
+}
