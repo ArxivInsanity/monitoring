@@ -18,14 +18,14 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 15,
+  "id": 18,
   "links": [],
   "liveNow": false,
   "panels": [
     {
       "datasource": {
         "type": "loki",
-        "uid": "d6bfe212-4de8-41ae-82e8-0426e6115bd8"
+        "uid": "${datasource}"
       },
       "gridPos": {
         "h": 8,
@@ -48,11 +48,9 @@
         {
           "datasource": {
             "type": "loki",
-            "uid": "d6bfe212-4de8-41ae-82e8-0426e6115bd8"
+            "uid": "${datasource}"
           },
-          "editorMode": "builder",
           "expr": "{app=\"ui-deployment\"}",
-          "key": "Q-741ce7c1-d178-49dd-9b11-547ae5306dbb-0",
           "queryType": "range",
           "refId": "ui_service_logs"
         }
@@ -63,7 +61,7 @@
     {
       "datasource": {
         "type": "loki",
-        "uid": "d6bfe212-4de8-41ae-82e8-0426e6115bd8"
+        "uid": "${datasource}"
       },
       "gridPos": {
         "h": 8,
@@ -86,11 +84,9 @@
         {
           "datasource": {
             "type": "loki",
-            "uid": "d6bfe212-4de8-41ae-82e8-0426e6115bd8"
+            "uid": "${datasource}"
           },
-          "editorMode": "builder",
           "expr": "{app=\"graph-deployment\"}",
-          "key": "Q-a219414f-cdfd-4f5c-b81c-6ff5456afab8-0",
           "queryType": "range",
           "refId": "graph_service_logs"
         }
@@ -101,7 +97,7 @@
     {
       "datasource": {
         "type": "loki",
-        "uid": "d6bfe212-4de8-41ae-82e8-0426e6115bd8"
+        "uid": "${datasource}"
       },
       "gridPos": {
         "h": 8,
@@ -124,11 +120,9 @@
         {
           "datasource": {
             "type": "loki",
-            "uid": "d6bfe212-4de8-41ae-82e8-0426e6115bd8"
+            "uid": "${datasource}"
           },
-          "editorMode": "builder",
           "expr": "{app=\"backend-deployment\"}",
-          "key": "Q-5eaae011-f8a1-4b2a-bd08-377fc496c337-0",
           "queryType": "range",
           "refId": "backend_service_logs"
         }
@@ -142,7 +136,28 @@
   "style": "dark",
   "tags": [],
   "templating": {
-    "list": []
+    "list": [
+      {
+        "current": {
+          "selected": true,
+          "text": "application-logs",
+          "value": "application-logs"
+        },
+        "description": "The loki data source to use",
+        "hide": 0,
+        "includeAll": false,
+        "label": "Data Source",
+        "multi": false,
+        "name": "datasource",
+        "options": [],
+        "query": "loki",
+        "queryValue": "",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "type": "datasource"
+      }
+    ]
   },
   "time": {
     "from": "now-6h",
@@ -152,6 +167,6 @@
   "timezone": "",
   "title": "logs",
   "uid": "c5f98383-26b7-4b7c-ba3f-c2c53c91b939",
-  "version": 7,
+  "version": 2,
   "weekStart": ""
 }
