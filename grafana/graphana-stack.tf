@@ -44,23 +44,51 @@ provider "grafana" {
   auth = grafana_cloud_stack_service_account_token.mystack_cloud_stack_service_account_token.key
 }
 
-resource "grafana_folder" "my_folder" {
+resource "grafana_folder" "monitoring" {
   provider = grafana.my_stack
 
-  title = "Test Folder"
+  title = local.kubernetes_monitoring
 }
 
+resource "grafana_folder" "logs" {
+  provider = grafana.my_stack
+
+  title = local.application_logs
+}
+
+resource "grafana_dashboard" "pod_metrics" {
+  depends_on  = [grafana_folder.monitoring]
+  provider    = grafana.my_stack
+  config_json = file("${path.module}/dashboards/Kubernetes_pods.json")
+  folder      = grafana_folder.monitoring.id
+}
+
+resource "grafana_dashboard" "workload_metrics" {
+  depends_on  = [grafana_folder.monitoring]
+  provider    = grafana.my_stack
+  config_json = file("${path.module}/dashboards/Kubernetes_workloads.json")
+  folder      = grafana_folder.monitoring.id
+}
+
+resource "grafana_dashboard" "application_logs" {
+  depends_on  = [grafana_folder.logs]
+  provider    = grafana.my_stack
+  config_json = file("${path.module}/dashboards/logs.json")
+  folder      = grafana_folder.logs.id
+}
 
 resource "grafana_data_source" "loki_datasource" {
-  provider = grafana.my_stack
-  type     = "loki"
-  name     = "application-logs"
-  url      = var.loki_url
+  provider   = grafana.my_stack
+  type       = "loki"
+  name       = "application-logs"
+  url        = var.loki_url
+  is_default = true
 }
 
 resource "grafana_data_source" "prom_datasource" {
-  provider = grafana.my_stack
-  type     = "prometheus"
-  name     = "cluster-monitoring"
-  url      = var.prom_url
+  provider   = grafana.my_stack
+  type       = "prometheus"
+  name       = "cluster-monitoring"
+  url        = var.prom_url
+  is_default = true
 }

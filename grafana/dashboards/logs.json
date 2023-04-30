@@ -1,0 +1,157 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": 15,
+  "links": [],
+  "liveNow": false,
+  "panels": [
+    {
+      "datasource": {
+        "type": "loki",
+        "uid": "d6bfe212-4de8-41ae-82e8-0426e6115bd8"
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 0
+      },
+      "id": 5,
+      "options": {
+        "dedupStrategy": "none",
+        "enableLogDetails": true,
+        "prettifyLogMessage": false,
+        "showCommonLabels": false,
+        "showLabels": false,
+        "showTime": false,
+        "sortOrder": "Descending",
+        "wrapLogMessage": false
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "loki",
+            "uid": "d6bfe212-4de8-41ae-82e8-0426e6115bd8"
+          },
+          "editorMode": "builder",
+          "expr": "{app=\"ui-deployment\"}",
+          "key": "Q-741ce7c1-d178-49dd-9b11-547ae5306dbb-0",
+          "queryType": "range",
+          "refId": "ui_service_logs"
+        }
+      ],
+      "title": "UI service logs",
+      "type": "logs"
+    },
+    {
+      "datasource": {
+        "type": "loki",
+        "uid": "d6bfe212-4de8-41ae-82e8-0426e6115bd8"
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 0
+      },
+      "id": 6,
+      "options": {
+        "dedupStrategy": "none",
+        "enableLogDetails": true,
+        "prettifyLogMessage": false,
+        "showCommonLabels": false,
+        "showLabels": false,
+        "showTime": false,
+        "sortOrder": "Descending",
+        "wrapLogMessage": false
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "loki",
+            "uid": "d6bfe212-4de8-41ae-82e8-0426e6115bd8"
+          },
+          "editorMode": "builder",
+          "expr": "{app=\"graph-deployment\"}",
+          "key": "Q-a219414f-cdfd-4f5c-b81c-6ff5456afab8-0",
+          "queryType": "range",
+          "refId": "graph_service_logs"
+        }
+      ],
+      "title": "Graph service logs",
+      "type": "logs"
+    },
+    {
+      "datasource": {
+        "type": "loki",
+        "uid": "d6bfe212-4de8-41ae-82e8-0426e6115bd8"
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 24,
+        "x": 0,
+        "y": 8
+      },
+      "id": 4,
+      "options": {
+        "dedupStrategy": "none",
+        "enableLogDetails": true,
+        "prettifyLogMessage": false,
+        "showCommonLabels": false,
+        "showLabels": false,
+        "showTime": false,
+        "sortOrder": "Descending",
+        "wrapLogMessage": false
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "loki",
+            "uid": "d6bfe212-4de8-41ae-82e8-0426e6115bd8"
+          },
+          "editorMode": "builder",
+          "expr": "{app=\"backend-deployment\"}",
+          "key": "Q-5eaae011-f8a1-4b2a-bd08-377fc496c337-0",
+          "queryType": "range",
+          "refId": "backend_service_logs"
+        }
+      ],
+      "title": "Backend Service Logs",
+      "type": "logs"
+    }
+  ],
+  "refresh": "",
+  "schemaVersion": 38,
+  "style": "dark",
+  "tags": [],
+  "templating": {
+    "list": []
+  },
+  "time": {
+    "from": "now-6h",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "",
+  "title": "logs",
+  "uid": "c5f98383-26b7-4b7c-ba3f-c2c53c91b939",
+  "version": 7,
+  "weekStart": ""
+}
