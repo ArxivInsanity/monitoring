@@ -1,5 +1,5 @@
 resource "kubernetes_service" "prom_service" {
-  depends_on = [kubernetes_namespace.prom_namespace]
+  depends_on = [kubernetes_namespace.prom_namespace, helm_release.prom]
   metadata {
     name      = local.prom_service_label
     namespace = local.prom_namespace

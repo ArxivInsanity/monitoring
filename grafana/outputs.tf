@@ -1,5 +1,5 @@
 output "datasources_enabled" {
-  value = [grafana_data_source.loki_datasource.name,grafana_data_source.prom_datasource.name]
+  value = [grafana_data_source.loki_datasource.name, grafana_data_source.prom_datasource.name]
 }
 
 output "graphana_details" {

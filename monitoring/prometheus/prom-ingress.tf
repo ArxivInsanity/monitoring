@@ -1,5 +1,5 @@
 resource "kubernetes_ingress_v1" "prom_ingress" {
-  depends_on             = [kubernetes_namespace.prom_namespace]
+  depends_on             = [kubernetes_namespace.prom_namespace, helm_release.prom]
   wait_for_load_balancer = true
   metadata {
     name = local.prom_ingress
